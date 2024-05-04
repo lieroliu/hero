@@ -8,7 +8,7 @@ export const getHeroList = async () => {
 
 export const getHeroProfile = async (id: string) => {
   return axios
-    .get(`https://hahow-recruit.herokuapp.com/heroes/${id}`)
+    .get(`https://hahow-recruit.herokuapp.com/heroes/${id}/profile`)
     .then((res) => res.data)
     .catch((_) => ({}));
 };

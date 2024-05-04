@@ -2,21 +2,10 @@ import {
   QueryClient,
   QueryClientProvider as QueryProvider,
 } from "@tanstack/react-query";
-import { lazy } from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Hero } from "./pages/hero";
+import { Home } from "./pages/home";
 import { ROOT } from "./paths";
-
-const Home = lazy(() =>
-  import("./pages/home").then(({ Home: Page }) => ({
-    default: Page,
-  }))
-);
-
-const Hero = lazy(() =>
-  import("./pages/hero").then(({ Hero: Page }) => ({
-    default: Page,
-  }))
-);
 
 const queryClient = new QueryClient();
 

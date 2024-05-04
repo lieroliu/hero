@@ -1,20 +1,19 @@
 import { useCallback } from "react";
 import { Outlet, useNavigate, useParams } from "react-router-dom";
 import { Card } from "../../components";
-import { useHeros } from "../../hooks";
+import { useGetHeros } from "../../hooks";
 import { HOME } from "../../paths";
 import {
   ContainerStyled,
   ItemWrapperStyled,
   NavigationContainerStyled,
-  OutletContainerStyled,
 } from "./styles";
 
 export const Home: React.FC = () => {
   const navigate = useNavigate();
   const { heroId } = useParams();
 
-  const { data: heros } = useHeros();
+  const { data: heros } = useGetHeros();
   const handleTabChange = useCallback(
     (id: string) => {
       navigate(`/${HOME}/${id}`);
@@ -24,7 +23,7 @@ export const Home: React.FC = () => {
 
   return (
     <ContainerStyled>
-      <NavigationContainerStyled>
+      <NavigationContainerStyled elevation={3}>
         {heros &&
           heros.map((item) => (
             <ItemWrapperStyled
@@ -36,9 +35,7 @@ export const Home: React.FC = () => {
             </ItemWrapperStyled>
           ))}
       </NavigationContainerStyled>
-      <OutletContainerStyled>
-        <Outlet />
-      </OutletContainerStyled>
+      <Outlet />
     </ContainerStyled>
   );
 };

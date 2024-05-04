@@ -1,1 +1,2 @@
-export { useHeros } from "./useHeros";
+export { useGetHeroProfile } from "./useGetHeroProfile";
+export { useGetHeros } from "./useGetHeros";

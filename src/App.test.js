@@ -1,4 +1,4 @@
-import { App } from './App';
+import { App } from "./App";
 import { renderWithProvider } from "./utils/renderWithProvider";
 
 test("renders learn react link", () => {
