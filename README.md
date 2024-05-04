@@ -1,8 +1,10 @@
 
 # Heros
-
-- yarn start
 - [github-page](https://lieroliu.github.io/hero/)
+
+## 指令
+- **yarn start** 啟動專案
+- **yarn deploy** 發布 github page
 
 ## 目錄
 
