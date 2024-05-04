@@ -1,0 +1,1 @@
+export { useHeros } from "./useHeros";
