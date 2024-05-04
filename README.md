@@ -1,70 +1,59 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Heros
 
-## Available Scripts
+- yarn start
+- [github-page](https://lieroliu.github.io/hero/)
 
-In the project directory, you can run:
+## 目錄
 
-### `npm start`
+- [工具/技術](#工具/技術)
+- [概念](#概念)
+- [專案結構](#專案結構)
+- [Naming Convention](#naming-convention)
+- [Commit Rules](#commit-rules)
+- [CLI](#CLI)
+- [Useful Devtools](#useful-devtools)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 工具/技術
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- [TypeScript](https://www.typescriptlang.org/docs/)
+- [React 18](https://beta.reactjs.org/)
+- [React-Query v4](https://tanstack.com/query/v4/)
+- [Axios](https://axios-http.com/docs/intro)
+- [Jest](https://jestjs.io/)
+- [react-testing-library](https://testing-library.com/docs/react-testing-library/intro)
+- [react-hooks-testing-library](https://react-hooks-testing-library.com/)
+- [Material UI](https://mui.com/zh/material-ui/getting-started/overview/)
+- [Styled-Components](https://styled-components.com/docs)
+- [React-Toastify](https://www.npmjs.com/package/react-toastify)
 
-### `npm test`
+## 專案結構
+- **data-access** 和後端互動的功能 (custom react-query hooks)
+- **providers** 客製化的各式 Provider
+- **pages** 頁面
+- **interface** 共用的 TypeScript interface/types/enum
+- **utils** 工具型程式/元件/各種程式邏輯
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Naming Convention
+- **data-access**
+  - **GET**
+    - Hook `useGet{{MODEL}}` ex. `useGetUser`
+    - Fetch function `get{{MODEL}}` ex. `getUser`
+  - **POST**
+    - Hook `usePost{{MODEL}}` ex. `usePost`
+    - Fetch function `post{{MODEL}}` ex. `postUser`
+  - **PATCH**
+    - Hook `usePatch{{MODEL}}` ex. `usePatchUser`
+    - Fetch function `patch{{MODEL}}` ex. `patchUser`
+  - **DELETE**
+    - Hook `useDelete{{MODEL}}` ex. `useDeleteUser`
+    - Fetch function `delete{{MODEL}}` ex. `deleteUser`
+- **providers**
+  - `{{LIBRARY/INTENTION}}Provider` ex. `QueryClientProvider`
+- **pages**
+  - 頁面名稱
+- **interface**
+  - `{{MODEL}}.interface` ex. `User.interface`
+- **utils** N/A
+- **變數** `camelCase`
+- **React Hooks** prefix with `use`
