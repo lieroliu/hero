@@ -2,6 +2,7 @@ import { Typography } from "@mui/material";
 import Button from "@mui/material/Button";
 import { FC, useCallback, useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import { AdjustPoint } from "../../components";
 import { useGetHeroProfile, usePatchHeroProfile } from "../../data-access";
 import { PointEnum, Profile } from "../../types";
@@ -48,7 +49,14 @@ export const Hero: FC = () => {
   }, []);
 
   const handleSubmit = useCallback(() => {
-    saveProfile(tempData);
+    saveProfile(tempData, {
+      onSuccess: () => {
+        toast.success("儲存成功");
+      },
+      onError: () => {
+        toast.error("儲存失敗");
+      },
+    });
   }, [saveProfile, tempData]);
 
   useEffect(() => {

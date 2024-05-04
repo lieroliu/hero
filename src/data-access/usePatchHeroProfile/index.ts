@@ -7,10 +7,8 @@ export const usePatchHeroProfile = (id: string) => {
   return useMutation({
     mutationKey: ["patch-heros-profile"],
     mutationFn: (param: Profile) => patchHeroProfile(id, param),
-    onSuccess: (res) => {
-      if (res.code === 200) {
-        queryClient.invalidateQueries({ queryKey: ["heros-profile", { id }] });
-      }
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["heros-profile", { id }] });
     },
   });
 };

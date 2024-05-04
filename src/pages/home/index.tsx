@@ -31,7 +31,7 @@ export const Home: React.FC = () => {
               key={item.id}
               onClick={() => handleTabChange(item.id)}
             >
-              {(heroId === item.id || !heroId) && <ItemMaskStyled />}
+              {heroId !== item.id && heroId && <ItemMaskStyled />}
               <Card label={item.name} img={item.image} />
             </ItemWrapperStyled>
           ))}
