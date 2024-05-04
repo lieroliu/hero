@@ -3,7 +3,7 @@ import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { FC } from "react";
+import { FC, memo } from "react";
 
 export interface CardProps {
   img: string;
@@ -24,4 +24,4 @@ export const Card: FC<CardProps> = ({ img, label }: CardProps) => {
     </MuiCard>
   );
 };
-export default Card;
+export default memo(Card);

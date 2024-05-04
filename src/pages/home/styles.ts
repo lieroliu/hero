@@ -22,6 +22,7 @@ export const NavigationContainerStyled = styled(Paper)(() => ({
   width: "100%",
   padding: "12px",
   maxWidth: "648px",
+  minHeight: "200px",
   marginTop: "12px",
 }));
 
@@ -32,26 +33,20 @@ export const OutletContainerStyled = styled(Paper)(() => ({
   maxWidth: "648px",
 }));
 
-export const ItemWrapperStyled = styled(Box)<{ $isActive: boolean }>(
-  ({ $isActive }) => ({
-    position: "relative",
-    borderRadius: "4px",
-    minWidth: "140px",
+export const ItemWrapperStyled = styled(Box)(() => ({
+  position: "relative",
+  borderRadius: "4px",
+  minWidth: "140px",
+}));
 
-    // 半透明遮罩
-    ...(!$isActive && {
-      "&::before": {
-        content: '""',
-        position: "absolute",
-        borderRadius: "4px",
-        top: 0,
-        left: 0,
-        width: "100%",
-        minWidth: "140px",
-        height: "100%",
-        backgroundColor: "rgba(0, 0, 0, 0.5)",
-        zIndex: 1,
-      },
-    }),
-  })
-);
+export const ItemMaskStyled = styled(Box)(() => ({
+  content: '""',
+  position: "absolute",
+  borderRadius: "4px",
+  top: 0,
+  left: 0,
+  width: "100%",
+  height: "100%",
+  backgroundColor: "rgba(0, 0, 0, 0.5)",
+  zIndex: 1,
+}));

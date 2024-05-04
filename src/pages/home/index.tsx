@@ -1,10 +1,11 @@
 import { useCallback } from "react";
 import { Outlet, useNavigate, useParams } from "react-router-dom";
 import { Card } from "../../components";
-import { useGetHeros } from "../../hooks";
+import { useGetHeros } from "../../data-access";
 import { HOME } from "../../paths";
 import {
   ContainerStyled,
+  ItemMaskStyled,
   ItemWrapperStyled,
   NavigationContainerStyled,
 } from "./styles";
@@ -28,9 +29,9 @@ export const Home: React.FC = () => {
           heros.map((item) => (
             <ItemWrapperStyled
               key={item.id}
-              $isActive={heroId === item.id || !heroId}
               onClick={() => handleTabChange(item.id)}
             >
+              {(heroId === item.id || !heroId) && <ItemMaskStyled />}
               <Card label={item.name} img={item.image} />
             </ItemWrapperStyled>
           ))}

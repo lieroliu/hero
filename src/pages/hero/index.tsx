@@ -3,7 +3,7 @@ import Button from "@mui/material/Button";
 import { FC, useCallback, useEffect, useMemo, useState } from "react";
 import { useParams } from "react-router-dom";
 import { AdjustPoint } from "../../components";
-import { useGetHeroProfile } from "../../hooks";
+import { useGetHeroProfile, usePatchHeroProfile } from "../../data-access";
 import { PointEnum, Profile } from "../../types";
 import {
   AdjustPointWrapperStyled,
@@ -15,6 +15,8 @@ import {
 export const Hero: FC = () => {
   const { heroId } = useParams();
   const { data: profile, isFetched } = useGetHeroProfile({ id: heroId || "" });
+  const { mutate: saveProfile } = usePatchHeroProfile(heroId || "");
+
   const [tempData, setTempData] = useState<Profile>({
     str: 0,
     int: 0,
@@ -44,6 +46,10 @@ export const Hero: FC = () => {
       };
     });
   }, []);
+
+  const handleSubmit = useCallback(() => {
+    saveProfile(tempData);
+  }, [saveProfile, tempData]);
 
   useEffect(() => {
     if (isFetched && profile) {
@@ -86,7 +92,11 @@ export const Hero: FC = () => {
       <RightWrapperStyled>
         <SubmitWrapperStyled>
           <Typography>剩餘點數: {pointsLeft}</Typography>
-          <Button disabled={pointsLeft > 0} variant="contained">
+          <Button
+            onClick={handleSubmit}
+            disabled={pointsLeft > 0}
+            variant="contained"
+          >
             儲存
           </Button>
         </SubmitWrapperStyled>

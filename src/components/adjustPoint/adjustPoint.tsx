@@ -28,15 +28,11 @@ export const AdjustPoint: FC<AdjustPointProps> = ({
 
   return (
     <AdjustPointContainerStyled>
-      <LabelStyled>
-        <Typography variant="h5">{label}</Typography>
-      </LabelStyled>
+      <LabelStyled variant="h5">{label}</LabelStyled>
       <Button variant="outlined" onClick={handleAdd} disabled={addDisabled}>
         <Typography variant="h5">+</Typography>
       </Button>
-      <ValueStyled>
-        <Typography variant="h5">{value}</Typography>
-      </ValueStyled>
+      <ValueStyled variant="h5">{value}</ValueStyled>
       <Button variant="outlined" onClick={handleMinus} disabled={minusDisabled}>
         <Typography variant="h5">-</Typography>
       </Button>
