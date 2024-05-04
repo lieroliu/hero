@@ -6,7 +6,13 @@ import Typography from "@mui/material/Typography";
 import { FC, memo } from "react";
 
 export interface CardProps {
+  /**
+   * 圖片網址
+   */
   img: string;
+  /**
+   * 標題
+   */
   label: string;
 }
 

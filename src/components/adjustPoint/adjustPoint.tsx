@@ -6,7 +6,13 @@ import { AdjustPointContainerStyled, LabelStyled, ValueStyled } from "./styles";
 export interface AdjustPointProps {
   label: string;
   value: number;
+  /**
+   * + 按鈕 disabled
+   */
   addDisabled?: boolean;
+  /**
+   * - 按鈕 disabled
+   */
   minusDisabled?: boolean;
   onChange: (value: number) => void;
 }

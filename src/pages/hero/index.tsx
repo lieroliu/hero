@@ -18,6 +18,7 @@ export const Hero: FC = () => {
   const { data: profile, isFetched } = useGetHeroProfile({ id: heroId || "" });
   const { mutate: saveProfile } = usePatchHeroProfile(heroId || "");
 
+  // 暫存的資料，用於計算剩餘點數與儲存
   const [tempData, setTempData] = useState<Profile>({
     str: 0,
     int: 0,

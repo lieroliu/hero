@@ -25,17 +25,20 @@ export const Home: React.FC = () => {
   return (
     <ContainerStyled>
       <NavigationContainerStyled elevation={3}>
+        {/* hero 導覽列 */}
         {heros &&
           heros.map((item) => (
             <ItemWrapperStyled
               key={item.id}
               onClick={() => handleTabChange(item.id)}
             >
+              {/* {沒有被選中的 hero 則顯示遮罩} */}
               {heroId !== item.id && heroId && <ItemMaskStyled />}
               <Card label={item.name} img={item.image} />
             </ItemWrapperStyled>
           ))}
       </NavigationContainerStyled>
+      {/* hero 頁面內容 */}
       <Outlet />
     </ContainerStyled>
   );
