@@ -32,7 +32,7 @@
 - **data-access** 和後端互動的功能 (custom react-query hooks)
 - **providers** 客製化的各式 Provider
 - **pages** 頁面
-- **interface** 共用的 TypeScript interface/types/enum
+- **interface** 共用的 TypeScript interface/type/enum
 - **utils** 工具型程式/元件/各種程式邏輯
 
 ## Naming Convention
@@ -53,8 +53,6 @@
   - `{{LIBRARY/INTENTION}}Provider` ex. `QueryClientProvider`
 - **pages**
   - 頁面名稱
-- **interface**
-  - `{{MODEL}}.interface` ex. `User.interface`
-- **utils** N/A
-- **變數** `camelCase`
+- **types**
+  - `{{MODEL}}.interface` ex. `user.interface`
 - **React Hooks** prefix with `use`
