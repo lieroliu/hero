@@ -1,3 +1,4 @@
+import CssBaseline from "@mui/material/CssBaseline";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -9,6 +10,7 @@ import { QueryClientProvider } from "./providers";
 export const App = () => {
   return (
     <QueryClientProvider>
+      <CssBaseline />
       <ToastContainer
         position="bottom-center"
         autoClose={5000}
