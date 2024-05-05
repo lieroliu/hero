@@ -6,6 +6,5 @@ export const useGetHeros = () => {
   return useQuery<Hero[]>({
     queryKey: ["heros"],
     queryFn: () => getHeroList(),
-    initialData: [],
   });
 };
