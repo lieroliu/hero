@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/hero/static/css/main.f029a054.css",
-    "main.js": "/hero/static/js/main.344eac6e.js",
-    "static/js/453.445c8237.chunk.js": "/hero/static/js/453.445c8237.chunk.js",
-    "index.html": "/hero/index.html",
-    "main.f029a054.css.map": "/hero/static/css/main.f029a054.css.map",
-    "main.344eac6e.js.map": "/hero/static/js/main.344eac6e.js.map",
-    "453.445c8237.chunk.js.map": "/hero/static/js/453.445c8237.chunk.js.map"
+    "main.css": "/heros/static/css/main.f029a054.css",
+    "main.js": "/heros/static/js/main.c496c716.js",
+    "static/js/453.445c8237.chunk.js": "/heros/static/js/453.445c8237.chunk.js",
+    "index.html": "/heros/index.html",
+    "main.f029a054.css.map": "/heros/static/css/main.f029a054.css.map",
+    "main.c496c716.js.map": "/heros/static/js/main.c496c716.js.map",
+    "453.445c8237.chunk.js.map": "/heros/static/js/453.445c8237.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f029a054.css",
-    "static/js/main.344eac6e.js"
+    "static/js/main.c496c716.js"
   ]
 }
