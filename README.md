@@ -1,6 +1,8 @@
 
 # Heros
 - [github-page](https://lieroliu.github.io/hero/)
+- 使用 react starter 建立的新專案，加入 Typescript，使用 Router V6 運行 SPA 單頁式網站。
+- 使用 Axios 與 React-Query 做 API 資料管理；Material UI 快速建構各式 Component，React-Toastify 作為訊息通知中心
 
 ## 指令
 - **yarn start** 啟動專案
@@ -12,9 +14,6 @@
 - [概念](#概念)
 - [專案結構](#專案結構)
 - [Naming Convention](#naming-convention)
-- [Commit Rules](#commit-rules)
-- [CLI](#CLI)
-- [Useful Devtools](#useful-devtools)
 
 ## 工具/技術
 
