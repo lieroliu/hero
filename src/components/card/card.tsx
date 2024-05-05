@@ -16,6 +16,9 @@ export interface CardProps {
   label: string;
 }
 
+/**
+ * 卡片元件，包含一張圖片與標題
+ */
 export const Card: FC<CardProps> = ({ img, label }: CardProps) => {
   return (
     <MuiCard>

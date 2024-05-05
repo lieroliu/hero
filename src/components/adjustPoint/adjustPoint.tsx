@@ -17,6 +17,9 @@ export interface AdjustPointProps {
   onChange: (value: number) => void;
 }
 
+/**
+ * 調整數值的元件，包含 +、- 按鈕與數值顯示
+ */
 export const AdjustPoint: FC<AdjustPointProps> = ({
   label,
   value,
