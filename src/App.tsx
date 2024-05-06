@@ -1,11 +1,22 @@
 import CssBaseline from "@mui/material/CssBaseline";
+import { lazy } from "react";
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Hero } from "./pages/hero";
-import { Home } from "./pages/home";
 import { ROOT } from "./paths";
 import { QueryClientProvider } from "./providers";
+import { withPageBoundary } from "./utils/withPageBoundary";
+
+const Home = lazy(() =>
+  import("./pages/home").then(({ Home: Page }) => ({
+    default: Page,
+  }))
+);
+const Hero = lazy(() =>
+  import("./pages/hero").then(({ Hero: Page }) => ({
+    default: Page,
+  }))
+);
 
 export const App = () => {
   return (
@@ -23,9 +34,9 @@ export const App = () => {
       <Router>
         <Routes>
           <Route path={ROOT}>
-            <Route index element={<Home />} />
-            <Route path="heros" element={<Home />}>
-              <Route path=":heroId" element={<Hero />} />
+            <Route index element={withPageBoundary(<Home />)} />
+            <Route path="heros" element={withPageBoundary(<Home />)}>
+              <Route path=":heroId" element={withPageBoundary(<Hero />)} />
             </Route>
           </Route>
           <Route path="*" element={<Home />} />

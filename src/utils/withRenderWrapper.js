@@ -4,7 +4,7 @@ import {
 } from "@tanstack/react-query";
 import { render } from "@testing-library/react";
 
-export const renderWithProvider = (ui, options = {}) => {
+export const withRenderWrapper = (ui, options = {}) => {
   const queryClient = new QueryClient();
   const wrapper = ({ children }) => {
     return <QueryProvider client={queryClient}>{children}</QueryProvider>;

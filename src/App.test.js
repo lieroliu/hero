@@ -1,8 +1,8 @@
 import { App } from "./App";
-import { renderWithProvider } from "./utils/renderWithProvider";
+import { withRenderWrapper } from "./utils/withRenderWrapper";
 
 test("renders learn react link", () => {
-  const { baseElement } = renderWithProvider(<App />);
+  const { baseElement } = withRenderWrapper(<App />);
 
   expect(baseElement).toBeTruthy();
 });
