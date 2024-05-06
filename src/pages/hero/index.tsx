@@ -15,8 +15,14 @@ import {
 
 export const Hero: FC = () => {
   const { heroId } = useParams();
-  const { data: profile, isFetched } = useGetHeroProfile({ id: heroId || "" });
-  const { mutate: saveProfile } = usePatchHeroProfile(heroId || "");
+  const {
+    data: profile,
+    isFetched,
+    isFetching,
+  } = useGetHeroProfile({ id: heroId || "" });
+  const { mutate: saveProfile, isPending: isUpdating } = usePatchHeroProfile(
+    heroId || ""
+  );
 
   // 暫存的資料，用於計算剩餘點數與儲存
   const [tempData, setTempData] = useState<Profile>({
@@ -26,8 +32,8 @@ export const Hero: FC = () => {
     luk: 0,
   });
 
-  const pointsLeft = useMemo(() => {
-    if (!profile || !tempData) return 0;
+  const { pointsLeft, isUpdated } = useMemo(() => {
+    if (!profile || !tempData) return { pointsLeft: 0, isUpdated: false };
 
     // 資料庫總數值
     const amount = profile?.str + profile?.int + profile?.agi + profile?.luk;
@@ -36,8 +42,15 @@ export const Hero: FC = () => {
     const tempDataAmount =
       tempData?.str + tempData?.int + tempData?.agi + tempData?.luk;
 
+    // 檢查是否有更動
+    const isUpdated =
+      profile.str !== tempData.str ||
+      profile.int !== tempData.int ||
+      profile.agi !== tempData.agi ||
+      profile.luk !== tempData.luk;
+
     // 計算尚未分配的數值
-    return amount - tempDataAmount;
+    return { pointsLeft: amount - tempDataAmount, isUpdated };
   }, [tempData, profile]);
 
   const handlePointChange = useCallback((type: PointEnum, value: number) => {
@@ -103,7 +116,7 @@ export const Hero: FC = () => {
           <Typography>剩餘點數: {pointsLeft}</Typography>
           <Button
             onClick={handleSubmit}
-            disabled={pointsLeft > 0}
+            disabled={pointsLeft > 0 || !isUpdated || isUpdating || isFetching}
             variant="contained"
           >
             儲存
